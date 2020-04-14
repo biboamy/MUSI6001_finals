@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My experiment</title>
+        <script src="jspsych.js"></script>
+        <script src="plugins/jspsych-html-keyboard-response.js"></script>
+        <script src="plugins/jspsych-audio-keyboard-response.js"></script>
+        <script src="plugins/jspsych-survey-multi-choice.js"></script>
+        <link href="css/jspsych.css" rel="stylesheet" type="text/css"></link>
+    </head>
+    <body></body>
+    <script>
+
+    var timeline = [];
+
+    /* *************
+    Welcom section. Change word to fit the introduction.
+    ****************/
+    var welcome = {
+      type: "html-keyboard-response",
+      stimulus: "Welcome to the experiment. We are group 7. Press any key to begin."
+    };
+    timeline.push(welcome);
+
+    /* define instructions trial */
+    var instructions = {
+      type: "html-keyboard-response",
+      stimulus: "<p>How to do the experiment. bla bla bla.</p>"
+    };
+    timeline.push(instructions);
+
+    /* start the experiment */
+    jsPsych.init({
+      timeline: timeline
+    });
+
+    /* test trials */
+    var audio1 = {
+      type: 'audio-keyboard-response',
+      stimulus: 'audio/test1.wav',
+      choices: ['n'],
+      prompt: "<p>Place 'n' to go to next page and answer the question.</p>",
+    };
+
+    var answer1 = {
+      type: 'survey-multi-choice',
+      questions: [
+        {prompt: "How happy is the song? (press key 1~5)", name: 'happy', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How sad is the song? (press key 1~5)", name: 'sad', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How energized is the song? (press key 1~5)", name: 'energized', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How calm is the song? (press key 1~5)", name: 'calm', options: ['1', '2', '3', '4', '5'], required:true}, 
+      ],
+    };
+
+    timeline.push(audio1, answer1);
+
+    var lyrics1 = {
+      type: 'html-keyboard-response',
+      stimulus: '<p>The lyrics.</p>',
+      choices: ['n'],
+      prompt: "<p>Place 'n' to go to next page and answer the question.</p>",
+    };
+
+    var answer2 = {
+      type: 'survey-multi-choice',
+      questions: [
+        {prompt: "How happy is the song? (press key 1~5)", name: 'happy', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How sad is the song? (press key 1~5)", name: 'sad', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How energized is the song? (press key 1~5)", name: 'energized', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How calm is the song? (press key 1~5)", name: 'calm', options: ['1', '2', '3', '4', '5'], required:true}, 
+      ],
+    };
+
+    timeline.push(lyrics1, answer2);
+
+    /* start the experiment */
+    jsPsych.init({
+      timeline: timeline,
+      on_finish: function() {
+        jsPsych.data.displayData();
+      }
+    });
+
+    </script>
+</html>
