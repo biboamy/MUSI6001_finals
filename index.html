@@ -5,15 +5,26 @@
         <script src="jspsych.js"></script>
         <script src="plugins/jspsych-html-keyboard-response.js"></script>
         <script src="plugins/jspsych-audio-keyboard-response.js"></script>
+        <script src="plugins/jspsych-survey-text.js"></script>
+        <script src="plugins/jspsych-html-button-response.js"></script>
         <script src="plugins/jspsych-survey-multi-choice.js"></script>
         <link href="css/jspsych.css" rel="stylesheet" type="text/css"></link>
     </head>
     <body></body>
     <script>
 
-    var timeline = [];
+    function saveData(name, data){
+      var date = new Date();
+      var timestamp = Math.round(date.getTime() / 60000);
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify({filename: name + timestamp, filedata: data}));
+    }
 
-    /* *************
+    var timeline = []
+
+    /***************
     Welcom section. Change word to fit the introduction.
     ****************/
     var welcome = {
@@ -22,24 +33,43 @@
     };
     timeline.push(welcome);
 
-    /* define instructions trial */
+    /***************
+    Consent section. Change word to fit the Consent.
+    ****************/
+    var consent = {
+       type: 'survey-text',
+       preamble: "<p>We appreciate you taking the time to participate in this experiment; " +
+           "It should take no more than 20 minutes to complete.</p>" + 
+           "<p>To make sure you get full course credit for your time, please input your 'participant ID'" +
+           " which the instructor shared with you." + 
+           " Remember, you are free to stop the experiment at any time for any reason." +
+           " This would not affect your grade.</p>",
+       questions: [{prompt: "Participant ID", required: true}]
+    };
+    timeline.push(consent);
+
+    /***************
+    Instructions section. Change word to fit the Instructions.
+    ****************/
     var instructions = {
-      type: "html-keyboard-response",
-      stimulus: "<p>How to do the experiment. bla bla bla.</p>"
+      type: "html-button-response",
+      stimulus: "<p>blah</p>" +
+          "<p>blah</p>" +
+          "<p>blah</p>" +
+          "<p>blah</p>" +
+          "<p>blah</p>",
+      choices: ["Begin"],
+      post_trial_gap: 2000
     };
     timeline.push(instructions);
-
-    /* start the experiment */
-    jsPsych.init({
-      timeline: timeline
-    });
-
-    /* test trials */
+    
+    /***************
+    Audio experiment
+    ****************/
     var audio1 = {
       type: 'audio-keyboard-response',
       stimulus: 'audio/test1.wav',
-      choices: ['n'],
-      prompt: "<p>Place 'n' to go to next page and answer the question.</p>",
+      prompt: "<p>After listening to the song, press any keys to answer the questions.</p>",
     };
 
     var answer1 = {
@@ -51,14 +81,15 @@
         {prompt: "How calm is the song? (press key 1~5)", name: 'calm', options: ['1', '2', '3', '4', '5'], required:true}, 
       ],
     };
-
     timeline.push(audio1, answer1);
 
-    var lyrics1 = {
+    /***************
+    Lyrics experiment
+    ****************/
+    var lyrics2 = {
       type: 'html-keyboard-response',
       stimulus: '<p>The lyrics.</p>',
-      choices: ['n'],
-      prompt: "<p>Place 'n' to go to next page and answer the question.</p>",
+      prompt: "<p>After reading the lyrics, press any keys to answer the questions.</p>",
     };
 
     var answer2 = {
@@ -70,15 +101,25 @@
         {prompt: "How calm is the song? (press key 1~5)", name: 'calm', options: ['1', '2', '3', '4', '5'], required:true}, 
       ],
     };
+    timeline.push(lyrics2, answer2);
+   
+    /***************
+    Goodbye section. Change word to fit the Goodbye.
+    ****************/
+    var goodbye = {
+       type: 'html-keyboard-response',
+       stimulus: "<p>Thank you for taking the time to participate in this experiment!</p><br><p>Please press any key to terminate the experiment.</p>" 
+    };
+    timeline.push(goodbye);
 
-    timeline.push(lyrics1, answer2);
-
-    /* start the experiment */
+    /***************
+    Start the experiment and collect data
+    ****************/
     jsPsych.init({
       timeline: timeline,
-      on_finish: function() {
-        jsPsych.data.displayData();
-      }
+      show_progress_bar: true,
+      preload_audio: ["audio/test1.wav"], /////AUDIO MUST BE PRELOADED
+      on_finish: function(){  jsPsych.data.get().csv(); }
     });
 
     </script>
