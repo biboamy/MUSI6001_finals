@@ -38,12 +38,12 @@
     ****************/
     var consent = {
        type: 'survey-text',
-       preamble: "<p>We appreciate you taking the time to participate in this experiment; " +
-           "It should take no more than 20 minutes to complete.</p>" + 
-           "<p>To make sure you get full course credit for your time, please input your 'participant ID'" +
-           " which the instructor shared with you." + 
-           " Remember, you are free to stop the experiment at any time for any reason." +
-           " This would not affect your grade.</p>",
+       preamble: "<p>We appreciate you taking the time to participate in this experiment; </br> \
+           It should take no more than 20 minutes to complete.</p> </br> \
+           <p>To make sure you get full course credit for your time, please input your 'participant ID' </br> \
+            which the instructor shared with you. </br> \
+            Remember, you are free to stop the experiment at any time for any reason. </br> \
+            This would not affect your grade.</p>",
        questions: [{prompt: "Participant ID", required: true}]
     };
     timeline.push(consent);
@@ -53,10 +53,10 @@
     ****************/
     var instructions = {
       type: "html-button-response",
-      stimulus: "value", "<p>In this study, you will be given three types of stimuli of songs:</p>" +
-                        "<p>Lyrics of song, backing track of song (without vocals), Song with vocals and backing track </p>" +
-                        "<p>After you see each stimulus, you will be asked to rate on a scale of 1 to 5 what emotions it conveyed to you.</p>" +
-                        "<p>The emotions you will choose from are: Happy, Sad, Energized, Calm</p>",
+      stimulus: "<p>In this study, you will be given three types of stimuli of songs:</p>  </br>\
+                        <p>Lyrics of song, backing track of song (without vocals), Song with vocals and backing track </p>  </br>\
+                        <p>After you see each stimulus, you will be asked to rate on a scale of 1 to 5 what emotions it conveyed to you.</p>  </br> \
+                        <p>The emotions you will choose from are: Happy, Sad, Energized, Calm</p>",
       choices: ["Begin"],
       post_trial_gap: 2000
     };
@@ -93,10 +93,10 @@
 
     var lyrics1 = {
       type: 'html-keyboard-response',
-      stimulus: '<p>All the other kids with the pumped up kicks</p>' +
-				'<p>You better run, better run, outrun my gun</p>' +
-				'<p>All the other kids with the pumped up kicks</p>' +
-				'<p>You better run, better run, faster than my bullet</p>',
+      stimulus: '<p>All the other kids with the pumped up kicks</p>  \
+				<p>You better run, better run, outrun my gun</p>  \
+				<p>All the other kids with the pumped up kicks</p>  \
+				<p>You better run, better run, faster than my bullet</p></br>',
       prompt: "<p>After reading the lyrics, press any keys to answer the questions.</p>",
     };
 
@@ -139,12 +139,12 @@
 
     var lyrics2 = {
       type: 'html-keyboard-response',
-      stimulus: '<p>I\'m the kind of guy</p>' +
-				'<p>Who never used to cry</p>' +
-				'<p>The world is treatin\' me bad, misery</p>' +
-				'<p>I\'ve lost her now for sure</p>' +
-				'<p>I won\'t see her no more</p>' +
-				'<p>It\'s gonna be a drag, misery</p>',
+      stimulus: '<p>I\'m the kind of guy</p>  \
+				<p>Who never used to cry</p>   \
+				<p>The world is treatin\' me bad, misery</p>   \
+				<p>I\'ve lost her now for sure</p>   \
+				<p>I won\'t see her no more</p>    \
+				<p>It\'s gonna be a drag, misery</p></br>',
       prompt: "<p>After reading the lyrics, press any keys to answer the questions.</p>",
     };
 
@@ -209,12 +209,12 @@
 
     var lyrics3 = {
       type: 'html-keyboard-response',
-      stimulus: '<p>Something don\'t feel right</p>' +
-				'<p>Because it ain\'t right</p>' +
-				'<p>Especially comin\' up after midnight</p>' +
-				'<p>I smell your secret, and I\'m not too perfect</p>' +
-				'<p>To ever feel this worthless</p>' +
-				'<p>How did it come down to this?</p>',
+      stimulus: '<p>Something don\'t feel right</p>  \
+				<p>Because it ain\'t right</p>   \
+				<p>Especially comin\' up after midnight</p>  \
+				<p>I smell your secret, and I\'m not too perfect</p>  \
+				<p>To ever feel this worthless</p> \
+				<p>How did it come down to this?</p></br>',
       prompt: "<p>After reading the lyrics, press any keys to answer the questions.</p>",
     };
 
@@ -280,12 +280,12 @@
 
     var lyrics4 = {
       type: 'html-keyboard-response',
-      stimulus: '<p>Drivin\' on the lawn</p>' +
-				'<p>Sleepin\' on the roof</p>' +
-				'<p>Drinkin\' all the alchohol</p>' +
-				'<p>All the kids from school</p>' +
-				'<p>Will be naked in the pool</p>' +
-				'<p>While our parents are on Fire Island</p>',
+      stimulus: '<p>Drivin\' on the lawn</p>\
+				<p>Sleepin\' on the roof</p>\
+				<p>Drinkin\' all the alchohol</p>\
+				<p>All the kids from school</p>\
+				<p>Will be naked in the pool</p>\
+				<p>While our parents are on Fire Island</p></br>',
       prompt: "<p>After reading the lyrics, press any keys to answer the questions.</p>",
     };
 
@@ -373,10 +373,10 @@
 
     var lyrics5 = {
       type: 'html-keyboard-response',
-      stimulus: '<p>Last night I dug your picture out from our old dresser drawer</p>' +
-				'<p>I set it on the table and I talked to it \'til four</p>' +
-				'<p>I read some old love letters right up \'til the break of dawn</p>' +
-				'<p>Yeah I\'ve been sittin\' alone diggin\' up bones</p>'
+      stimulus: '<p>Last night I dug your picture out from our old dresser drawer</p>\
+				<p>I set it on the table and I talked to it \'til four</p>\
+				<p>I read some old love letters right up \'til the break of dawn</p>\
+				<p>Yeah I\'ve been sittin\' alone diggin\' up bones</p></br>',
       prompt: "<p>After reading the lyrics, press any keys to answer the questions.</p>",
     };
 
@@ -428,7 +428,11 @@
       timeline: timeline,
       show_progress_bar: true,
       preload_audio: ["audio/test1.wav"], /////AUDIO MUST BE PRELOADED
-      on_finish: function(){  jsPsych.data.get().csv(); }
+      on_finish: function(){  
+        console.log(jsPsych.data.get().csv())
+        jsPsych.data.get().csv(); 
+
+      }
     });
 
     </script>
