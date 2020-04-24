@@ -25,11 +25,11 @@
     var timeline = []
 
     /***************
-    Welcom section. Change word to fit the introduction.
+    Welcome section. Change word to fit the introduction.
     ****************/
     var welcome = {
       type: "html-keyboard-response",
-      stimulus: "Welcome to the experiment. We are group 7. Press any key to begin."
+      stimulus: "Welcome to the Music Perception and Cognition study run by Group 7!. Press any key to begin."
     };
     timeline.push(welcome);
 
@@ -54,21 +54,26 @@
     var instructions = {
       type: "html-button-response",
       stimulus: "<p>blah</p>" +
-          "<p>blah</p>" +
-          "<p>blah</p>" +
-          "<p>blah</p>" +
-          "<p>blah</p>",
+          "<p>In this study, you will be given three types of stimuli of songs:</p>" +
+          "<p>Lyrics of song, backing track of song (without vocals), Song with vocals and backing track </p>" +
+          "<p>After you see each stimulus, you will be asked to rate on a scale of 1 to 5 what emotions it conveyed to you.</p>" +
+          "<p>The emotions you will choose from are: Happy, Sad, Energized, Calm</p>",
       choices: ["Begin"],
       post_trial_gap: 2000
     };
     timeline.push(instructions);
     
     /***************
-    Audio experiment
+    Questions Begin
     ****************/
+
+  /******************
+    Question 1
+	******************/
+
     var audio1 = {
       type: 'audio-keyboard-response',
-      stimulus: 'audio/test1.wav',
+      stimulus: 'audio/DigginUpBones_Music.mp3',
       prompt: "<p>After listening to the song, press any keys to answer the questions.</p>",
     };
 
@@ -83,12 +88,16 @@
     };
     timeline.push(audio1, answer1);
 
-    /***************
-    Lyrics experiment
-    ****************/
-    var lyrics2 = {
+  /******************
+    Question 2
+	******************/
+
+    var lyrics1 = {
       type: 'html-keyboard-response',
-      stimulus: '<p>The lyrics.</p>',
+      stimulus: '<p>All the other kids with the pumped up kicks</p>' +
+				'<p>You better run, better run, outrun my gun</p>' +
+				'<p>All the other kids with the pumped up kicks</p>' +
+				'<p>You better run, better run, faster than my bullet</p>',
       prompt: "<p>After reading the lyrics, press any keys to answer the questions.</p>",
     };
 
@@ -102,7 +111,308 @@
       ],
     };
     timeline.push(lyrics2, answer2);
+
+
+  /******************
+    Question 3
+	******************/
+
+    var audio2 = {
+      type: 'audio-keyboard-response',
+      stimulus: 'audio/HoldUp_Combined.mp3',
+      prompt: "<p>After listening to the song, press any keys to answer the questions.</p>",
+    };
+
+    var answer3 = {
+      type: 'survey-multi-choice',
+      questions: [
+        {prompt: "How happy is the song? (press key 1~5)", name: 'happy', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How sad is the song? (press key 1~5)", name: 'sad', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How energized is the song? (press key 1~5)", name: 'energized', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How calm is the song? (press key 1~5)", name: 'calm', options: ['1', '2', '3', '4', '5'], required:true}, 
+      ],
+    };
+    timeline.push(audio1, answer1);
+
+  /******************
+    Question 4
+	******************/
+
+    var lyrics2 = {
+      type: 'html-keyboard-response',
+      stimulus: '<p>I\'m the kind of guy</p>' +
+				'<p>Who never used to cry</p>' +
+				'<p>The world is treatin\' me bad, misery</p>' +
+				'<p>I\'ve lost her now for sure</p>' +
+				'<p>I won\'t see her no more</p>' +
+				'<p>It\'s gonna be a drag, misery</p>',
+      prompt: "<p>After reading the lyrics, press any keys to answer the questions.</p>",
+    };
+
+    var answer4 = {
+      type: 'survey-multi-choice',
+      questions: [
+        {prompt: "How happy is the song? (press key 1~5)", name: 'happy', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How sad is the song? (press key 1~5)", name: 'sad', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How energized is the song? (press key 1~5)", name: 'energized', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How calm is the song? (press key 1~5)", name: 'calm', options: ['1', '2', '3', '4', '5'], required:true}, 
+      ],
+    };
+    timeline.push(lyrics2, answer2);
+
+  /******************
+    Question 5
+	******************/
+
+    var audio3 = {
+      type: 'audio-keyboard-response',
+      stimulus: 'audio/FireIsland_Combined.mp3',
+      prompt: "<p>After listening to the song, press any keys to answer the questions.</p>",
+    };
+
+    var answer5 = {
+      type: 'survey-multi-choice',
+      questions: [
+        {prompt: "How happy is the song? (press key 1~5)", name: 'happy', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How sad is the song? (press key 1~5)", name: 'sad', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How energized is the song? (press key 1~5)", name: 'energized', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How calm is the song? (press key 1~5)", name: 'calm', options: ['1', '2', '3', '4', '5'], required:true}, 
+      ],
+    };
+    timeline.push(audio1, answer1);
+
+
+    /******************
+    Question 6
+	******************/
+
+    var audio4 = {
+      type: 'audio-keyboard-response',
+      stimulus: 'audio/MiseryBeatles_Music.mp3',
+      prompt: "<p>After listening to the song, press any keys to answer the questions.</p>",
+    };
+
+    var answer6 = {
+      type: 'survey-multi-choice',
+      questions: [
+        {prompt: "How happy is the song? (press key 1~5)", name: 'happy', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How sad is the song? (press key 1~5)", name: 'sad', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How energized is the song? (press key 1~5)", name: 'energized', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How calm is the song? (press key 1~5)", name: 'calm', options: ['1', '2', '3', '4', '5'], required:true}, 
+      ],
+    };
+    timeline.push(audio1, answer1);
    
+
+    /*****************
+    Question 7
+	******************/
+
+    var lyrics3 = {
+      type: 'html-keyboard-response',
+      stimulus: '<p>Something don\'t feel right</p>' +
+				'<p>Because it ain\'t right</p>' +
+				'<p>Especially comin\' up after midnight</p>' +
+				'<p>I smell your secret, and I\'m not too perfect</p>' +
+				'<p>To ever feel this worthless</p>' +
+				'<p>How did it come down to this?</p>',
+      prompt: "<p>After reading the lyrics, press any keys to answer the questions.</p>",
+    };
+
+    var answer7 = {
+      type: 'survey-multi-choice',
+      questions: [
+        {prompt: "How happy is the song? (press key 1~5)", name: 'happy', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How sad is the song? (press key 1~5)", name: 'sad', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How energized is the song? (press key 1~5)", name: 'energized', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How calm is the song? (press key 1~5)", name: 'calm', options: ['1', '2', '3', '4', '5'], required:true}, 
+      ],
+    };
+    timeline.push(lyrics2, answer2);
+
+
+    /******************
+    Question 8
+	******************/
+
+    var audio5 = {
+      type: 'audio-keyboard-response',
+      stimulus: 'audio/PumpedUpKicks_Music.mp3',
+      prompt: "<p>After listening to the song, press any keys to answer the questions.</p>",
+    };
+
+    var answer8 = {
+      type: 'survey-multi-choice',
+      questions: [
+        {prompt: "How happy is the song? (press key 1~5)", name: 'happy', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How sad is the song? (press key 1~5)", name: 'sad', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How energized is the song? (press key 1~5)", name: 'energized', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How calm is the song? (press key 1~5)", name: 'calm', options: ['1', '2', '3', '4', '5'], required:true}, 
+      ],
+    };
+    timeline.push(audio1, answer1);
+
+
+    /******************
+    Question 9
+	******************/
+
+    var audio6 = {
+      type: 'audio-keyboard-response',
+      stimulus: 'audio/DigginUpBones_Combined.mp3',
+      prompt: "<p>After listening to the song, press any keys to answer the questions.</p>",
+    };
+
+    var answer9 = {
+      type: 'survey-multi-choice',
+      questions: [
+        {prompt: "How happy is the song? (press key 1~5)", name: 'happy', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How sad is the song? (press key 1~5)", name: 'sad', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How energized is the song? (press key 1~5)", name: 'energized', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How calm is the song? (press key 1~5)", name: 'calm', options: ['1', '2', '3', '4', '5'], required:true}, 
+      ],
+    };
+    timeline.push(audio1, answer1);
+
+
+    /*****************
+    Question 10
+	******************/
+
+    var lyrics4 = {
+      type: 'html-keyboard-response',
+      stimulus: '<p>Drivin\' on the lawn</p>' +
+				'<p>Sleepin\' on the roof</p>' +
+				'<p>Drinkin\' all the alchohol</p>' +
+				'<p>All the kids from school</p>' +
+				'<p>Will be naked in the pool</p>' +
+				'<p>While our parents are on Fire Island</p>',
+      prompt: "<p>After reading the lyrics, press any keys to answer the questions.</p>",
+    };
+
+    var answer10 = {
+      type: 'survey-multi-choice',
+      questions: [
+        {prompt: "How happy is the song? (press key 1~5)", name: 'happy', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How sad is the song? (press key 1~5)", name: 'sad', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How energized is the song? (press key 1~5)", name: 'energized', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How calm is the song? (press key 1~5)", name: 'calm', options: ['1', '2', '3', '4', '5'], required:true}, 
+      ],
+    };
+    timeline.push(lyrics2, answer2);
+
+
+    /******************
+    Question 11
+	******************/
+
+    var audio7 = {
+      type: 'audio-keyboard-response',
+      stimulus: 'audio/MiseryBeatles_Combined.mp3',
+      prompt: "<p>After listening to the song, press any keys to answer the questions.</p>",
+    };
+
+    var answer11 = {
+      type: 'survey-multi-choice',
+      questions: [
+        {prompt: "How happy is the song? (press key 1~5)", name: 'happy', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How sad is the song? (press key 1~5)", name: 'sad', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How energized is the song? (press key 1~5)", name: 'energized', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How calm is the song? (press key 1~5)", name: 'calm', options: ['1', '2', '3', '4', '5'], required:true}, 
+      ],
+    };
+    timeline.push(audio1, answer1);
+
+
+    /******************
+    Question 12
+	******************/
+
+    var audio8 = {
+      type: 'audio-keyboard-response',
+      stimulus: 'audio/HoldUp_Music.mp3',
+      prompt: "<p>After listening to the song, press any keys to answer the questions.</p>",
+    };
+
+    var answer12 = {
+      type: 'survey-multi-choice',
+      questions: [
+        {prompt: "How happy is the song? (press key 1~5)", name: 'happy', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How sad is the song? (press key 1~5)", name: 'sad', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How energized is the song? (press key 1~5)", name: 'energized', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How calm is the song? (press key 1~5)", name: 'calm', options: ['1', '2', '3', '4', '5'], required:true}, 
+      ],
+    };
+    timeline.push(audio1, answer1);
+
+
+    /******************
+    Question 13
+	******************/
+
+    var audio9 = {
+      type: 'audio-keyboard-response',
+      stimulus: 'audio/PumpedUpKicks_Combined.mp3',
+      prompt: "<p>After listening to the song, press any keys to answer the questions.</p>",
+    };
+
+    var answer13 = {
+      type: 'survey-multi-choice',
+      questions: [
+        {prompt: "How happy is the song? (press key 1~5)", name: 'happy', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How sad is the song? (press key 1~5)", name: 'sad', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How energized is the song? (press key 1~5)", name: 'energized', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How calm is the song? (press key 1~5)", name: 'calm', options: ['1', '2', '3', '4', '5'], required:true}, 
+      ],
+    };
+    timeline.push(audio1, answer1);
+
+
+    /*****************
+    Question 14
+	******************/
+
+    var lyrics5 = {
+      type: 'html-keyboard-response',
+      stimulus: '<p>Last night I dug your picture out from our old dresser drawer</p>' +
+				'<p>I set it on the table and I talked to it \'til four</p>' +
+				'<p>I read some old love letters right up \'til the break of dawn</p>' +
+				'<p>Yeah I\'ve been sittin\' alone diggin\' up bones</p>'
+      prompt: "<p>After reading the lyrics, press any keys to answer the questions.</p>",
+    };
+
+    var answer14 = {
+      type: 'survey-multi-choice',
+      questions: [
+        {prompt: "How happy is the song? (press key 1~5)", name: 'happy', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How sad is the song? (press key 1~5)", name: 'sad', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How energized is the song? (press key 1~5)", name: 'energized', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How calm is the song? (press key 1~5)", name: 'calm', options: ['1', '2', '3', '4', '5'], required:true}, 
+      ],
+    };
+    timeline.push(lyrics2, answer2);
+
+    /******************
+    Question 15
+	******************/
+
+    var audio10 = {
+      type: 'audio-keyboard-response',
+      stimulus: 'audio/FireIsland_Music.mp3',
+      prompt: "<p>After listening to the song, press any keys to answer the questions.</p>",
+    };
+
+    var answer15 = {
+      type: 'survey-multi-choice',
+      questions: [
+        {prompt: "How happy is the song? (press key 1~5)", name: 'happy', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How sad is the song? (press key 1~5)", name: 'sad', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How energized is the song? (press key 1~5)", name: 'energized', options: ['1', '2', '3', '4', '5'], required:true}, 
+        {prompt: "How calm is the song? (press key 1~5)", name: 'calm', options: ['1', '2', '3', '4', '5'], required:true}, 
+      ],
+    };
+    timeline.push(audio1, answer1);
+
     /***************
     Goodbye section. Change word to fit the Goodbye.
     ****************/
